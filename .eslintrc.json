@@ -15,5 +15,9 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "max-classes-per-file": "off",
+        "no-console": "off",
+        "no-unused-vars": "warn",
+        "lines-between-class-members":"off"
     }
 }
