@@ -1,12 +1,17 @@
 {
-  "dependencies": {
-    "typescript": "^4.6.3"
-  },
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.19.0",
-    "@typescript-eslint/parser": "^5.19.0",
-    "eslint": "^8.13.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.26.0"
-  }
+    "scripts": {
+        "run-start": "npx ts-node Clase-8/Open-closed-y-liskov/Open-closed-start.ts",
+        "run-resuelto": "npx ts-node Clase-8/Open-closed-y-liskov/Open-closed-resuelto.ts"
+    },
+    "dependencies": {
+        "ts-node": "^10.7.0",
+        "typescript": "^4.6.3"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.19.0",
+        "@typescript-eslint/parser": "^5.19.0",
+        "eslint": "^8.13.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-plugin-import": "^2.26.0"
+    }
 }
