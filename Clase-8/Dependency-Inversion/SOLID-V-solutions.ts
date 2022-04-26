@@ -1,15 +1,18 @@
-// Interfaz para los amigos
 interface IFriends{
   name: string
   status: 'online' | 'offline'
 }
 
-type IFriendList = IFriends[]
+//Interfaz a modo de abstraccion 
+interface IManagementFriends {
+  list: IFriends[],
+  setStatus: (name: string, status: 'online' | 'offline')=>void
+}
 
-class FriendsCreator {
-  list: IFriendList;
+class FriendsManagement implements IManagementFriends {
+  list: IFriends[];
 
-  constructor(friendsList: IFriendList) {
+  constructor(friendsList: IFriends[]) {
     this.list = friendsList;
   }
 
@@ -21,10 +24,10 @@ class FriendsCreator {
 
 class User {
   name: string;
-  friends: FriendsCreator;
+  friends: IManagementFriends;
 
-  // Cortamos la dependecia hacia el modulo inferior
-  constructor(name: string, friendsList:FriendsCreator) {
+  // Modulo refiere a la abstraccion y no al modulo inferior
+  constructor(name: string, friendsList: IManagementFriends) {
     this.friends = friendsList;
     this.name = name;
   }
@@ -34,5 +37,6 @@ class User {
   }
 }
 
-const friends1 = new FriendsCreator([{ name: 'Alejo', status: 'online' }, { name: 'Alexis', status: 'offline' }]);
+const friends1 = new FriendsManagement([{ name: 'Alejo', status: 'online' }, { name: 'Alexis', status: 'offline' }])
 const user1 = new User('Tomi', friends1);
+

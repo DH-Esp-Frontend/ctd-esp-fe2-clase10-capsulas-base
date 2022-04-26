@@ -1,15 +1,12 @@
-// Interfaz para los amigos
 interface IFriends{
   name: string
   status: 'online' | 'offline'
 }
 
-type IFriendList = IFriends[]
+class FriendsManagement {
+  list: IFriends[];
 
-class FriendsCreator {
-  list: IFriendList;
-
-  constructor(friendsList: IFriendList) {
+  constructor(friendsList: IFriends[]) {
     this.list = friendsList;
   }
 
@@ -21,11 +18,11 @@ class FriendsCreator {
 
 class User {
   name: string;
-  friends: FriendsCreator;
+  friends: FriendsManagement;
 
-  // Modulo superior depende del inferior
+  // Modulo superior requiere del inferior
   constructor(name: string, friendsList:IFriendList) {
-    this.friends = new FriendsCreator(friendsList);
+    this.friends = new FriendsManagement(friendsList);
     this.name = name;
   }
 
