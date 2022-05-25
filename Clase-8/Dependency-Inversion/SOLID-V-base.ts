@@ -21,7 +21,7 @@ class User {
   friends: FriendsManagement;
 
   // Modulo superior requiere del inferior
-  constructor(name: string, friendsList:IFriendList) {
+  constructor(name: string, friendsList:IFriends[]) {
     this.friends = new FriendsManagement(friendsList);
     this.name = name;
   }
